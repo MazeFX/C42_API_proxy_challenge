@@ -16,5 +16,8 @@ And now the first step: Write a test, obey the testing goat!
 
 ### Personal thoughts
 I am very excited about doing this challenge. It's my first piece of coding based on a 'real' type of assigment. I'm already having a sence of drive to accomplish the challenge. I have a few concerns though, will my code quality be good enough? Will it matter that things will take a bit longer to accomplish since I don't have that much of spare time.
-Will my code work in the end? I had my fair share of problems with working in different environments already and since my windows laptop desided to die on me only 2 weeks ago I'm having trouble setting up a new environment on my old desktop pc at such short notice. Also will it work if someone else tries to use it? 
+Will my code work in the end? I had my fair share of problems with working in different environments already and since my windows laptop desided to die on me only 2 weeks ago I'm having trouble setting up a new environment on my old desktop pc at such short notice. Also will it work if someone else tries to use it?
+
+Because of my current personal situation I'm afraid for needing to much time to complete this challenge. On a normal working day I have about 1 hour of time to spend on this challenge if all goes well and I already spent 2 days migrating my development environment to my older 32bit desktop. There is no time frame provided with the challenge so I'm setting one for myself just to keep the pressure on.
+I have until next friday (7-10-2016) to work on this challenge before turning in the code I have. Until that time it is important for myself that I keep things nice and tidy and don't take shortcuts just to make the deadline.
 
