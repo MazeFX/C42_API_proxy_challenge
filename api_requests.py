@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-File: url_requests.py
+File: api_requests.py
 Creator: MazeFX
 Date: 03-10-2016
 
