@@ -5,14 +5,15 @@ File: api_requests.py
 Creator: MazeFX
 Date: 03-10-2016
 
-Directing the incoming requests according to proxy design.
+Returning response according to proxy design.
 
+First requesting data from C42 REST API, then transform/combine data
+into new a new json object and returning it as a response.
 
-Current expected incoming requests:
-
-* 'GET: /events-with-subscriptions/$EVENT_ID/'
 """
 
+from django.http import JsonResponse
 
-def get_events_with_subscriptions(request):
-    pass
+
+def get_events_with_subscriptions(request, event_id):
+    return JsonResponse({'id': event_id})
