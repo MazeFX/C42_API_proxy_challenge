@@ -24,3 +24,4 @@ Will my code work in the end? I had my fair share of problems with working in di
 Because of my current personal situation I'm afraid for needing to much time to complete this challenge. On a normal working day I have about 1 hour of time to spend on this challenge if all goes well and I already spent 2 days migrating my development environment to my older 32bit desktop. There is no time frame provided with the challenge so I'm setting one for myself just to keep the pressure on.
 I have until next friday (7-10-2016) to work on this challenge before turning in the code I have. Until that time it is important for myself that I keep things nice and tidy and don't take shortcuts just to make the deadline.
 
+Just finished building the tests for Babelfish, I have doubts that tests are adequate. They test the functions and they all pass but I'm uncertain if the test make the right assertions.

@@ -23,9 +23,38 @@ class Babelfish(object):
         self.api_url = base_url
         self.api_token = api_token
 
+    def get_event(self, event_id):
+        """ Sending a request at the C42 REST API
+            to get an event.
+        """
+        url = self.build_request_event_url(event_id)
+        headers = self.build_request_headers()
+
+        response = self.query_C42_REST_API(url, headers)
+        return response
+
+    def get_event_subscriptions(self, event_id):
+        """ Sending a request at the C42 REST API
+            to get an the event subscriptions.
+        """
+        url = self.build_request_event_subscriptions_url(event_id)
+        headers = self.build_request_headers()
+
+        response = self.query_C42_REST_API(url, headers)
+        return response
+
     def build_request_headers(self):
         header = {'Accept': 'application/json',
                   'Content-type': 'application/json',
                   'Authorization': 'Token {}'.format(self.api_token)}
         return header
+
+    def build_request_event_url(self, event_id):
+        return '{}events/{}/'.format(self.api_url, event_id)
+
+    def build_request_event_subscriptions_url(self, event_id):
+        return '{}event-subscriptions/?event_ids=[{}]'.format(self.api_url, event_id)
+
+    def query_C42_REST_API(self, url, headers):
+        return requests.get(url, headers=headers)
 

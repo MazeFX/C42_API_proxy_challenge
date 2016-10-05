@@ -15,6 +15,8 @@ Getting the C42_API_TOKEN from environment for increased security.
 """
 
 import environ
+import json
+from django.http import JsonResponse
 from django.test import TestCase
 from unittest.mock import patch, MagicMock
 
@@ -27,7 +29,7 @@ class BabelfishTest(TestCase):
 
     def setUp(self):
         self.demo_url = 'https://demo.calendar42.com/api/v2/'
-        self.test_event_id = 'd6e66cb0ced8e46102bcfd93ceac51b0_14752373875438'
+        self.test_event_id = 'DisasterAreaConcert'
 
         api_token = env('C42_API_TOKEN', default=None)
         if api_token is None:
@@ -38,21 +40,33 @@ class BabelfishTest(TestCase):
         # if the babelfish exists it proves the non-existence of god QED.
         self.assertEqual(self.babelfish.api_url, self.demo_url)
 
-    @patch('C42_API_proxy_challenge.babelfish.requests')
-    def test_get_event(self, req):
-        event_id = MagicMock()
-        self.babelfish.get_event(event_id)
-        req.assert_called_once_with('GET', event_id)
+    def test_get_event(self):
+        with patch.object(self.babelfish, 'query_C42_REST_API') as mocked_query:
+            mocked_query.return_value = JsonResponse({'id': 'DisasterAreaConcert'})
+            response = self.babelfish.get_event(self.test_event_id)
+            self.assertEqual(json.loads(response.content.decode('utf-8'))['id'], self.test_event_id)
 
     def test_get_event_subscriptions(self):
-        self.fail('Build a test function')
+        with patch.object(self.babelfish, 'query_C42_REST_API') as mocked_query:
+            mocked_query.return_value = JsonResponse({'event_id': 'DisasterAreaConcert'})
+            response = self.babelfish.get_event_subscriptions(self.test_event_id)
+            self.assertEqual(json.loads(response.content.decode('utf-8'))['event_id'], self.test_event_id)
 
     def test_build_request_headers(self):
         header = self.babelfish.build_request_headers()
         self.assertEqual(header['Authorization'], 'Token {}'.format(self.babelfish.api_token))
 
-    def test_build_request_url(self):
-        self.fail('Build a test function')
+    def test_build_request_event_url(self):
+        url = self.babelfish.build_request_event_url(self.test_event_id)
+        self.assertEqual('{}events/{}/'.format(self.demo_url, self.test_event_id), url)
 
-    def test_query_C42_REST_API(self):
-        self.fail('Build a test function')
+    def test_build_request_event_subscriptions_url(self):
+        url = self.babelfish.build_request_event_subscriptions_url(self.test_event_id)
+        self.assertEqual('{}event-subscriptions/?event_ids=[{}]'.format(self.demo_url, self.test_event_id), url)
+
+    @patch('C42_API_proxy_challenge.babelfish.requests.get')
+    def test_query_C42_REST_API(self, req):
+        url = MagicMock()
+        headers = MagicMock()
+        self.babelfish.query_C42_REST_API(url, headers)
+        req.assert_called_once_with(url, headers=headers)
