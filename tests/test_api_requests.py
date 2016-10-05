@@ -19,7 +19,7 @@ from C42_API_proxy_challenge.api_requests import get_events_with_subscriptions
 
 class C42RequestsTest(TestCase):
 
-    def test_event_with_subscriptions_url_resolves_to_C42_API(self):
+    def test_event_with_subscriptions_url_resolves_to_api_proxy(self):
         found = resolve('/C42/events-with-subscriptions/event_id/')
         self.assertEqual(found.func, get_events_with_subscriptions)
 

@@ -8,7 +8,7 @@ Date: 03-10-2016
 Returning response according to proxy design.
 
 First requesting data from C42 REST API, then transform/combine data
-into new a new json object and returning it as a response.
+into new a new json object, caching the object and returning it as a response.
 
 """
 
