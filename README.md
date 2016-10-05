@@ -14,6 +14,9 @@ When during development the outlining changes, things will be noted here.
 
 And now the first step: Write a test, obey the testing goat!
 
+05-10-2016: For offline testing of the request towards the C42 REST API I will use the *unittest.mock* module. I have no experience yet with this testing module and trying to find a way to wrap my head around this Magicmock object.
+Found some examples but there is not really much that I can find that gives a good handle for testing external requests.
+
 ### Personal thoughts
 I am very excited about doing this challenge. It's my first piece of coding based on a 'real' type of assigment. I'm already having a sence of drive to accomplish the challenge. I have a few concerns though, will my code quality be good enough? Will it matter that things will take a bit longer to accomplish since I don't have that much of spare time.
 Will my code work in the end? I had my fair share of problems with working in different environments already and since my windows laptop desided to die on me only 2 weeks ago I'm having trouble setting up a new environment on my old desktop pc at such short notice. Also will it work if someone else tries to use it?
