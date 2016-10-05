@@ -23,7 +23,7 @@ class C42RequestsTest(TestCase):
         found = resolve('/C42/events-with-subscriptions/event_id/')
         self.assertEqual(found.func, get_events_with_subscriptions)
 
-    def test_C42_proxy_returns_json_object(self):
+    def test_C42_proxy_get_request_returns_json_object(self):
         event_id = 'd6e66cb0ced8e46102bcfd93ceac51b0_14752373875438'
         response = self.client.get('/C42/events-with-subscriptions/{}/'.format(event_id))
         self.assertEqual(response.json()['id'], event_id)
