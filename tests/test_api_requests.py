@@ -11,6 +11,8 @@ Testing for Calendar42 REST API proxy.
 Provides tests for correctly directing the incoming requests according to proxy design.
 """
 
+import json
+import os
 from django.core.urlresolvers import resolve
 from django.test import TestCase
 from unittest.mock import patch, MagicMock
@@ -33,6 +35,17 @@ class C42RequestsTest(TestCase):
         patcher_create_json_response_object = patch('C42_API_proxy_challenge.api_requests.create_json_response_object')
         self.mock_create_json_response_object = patcher_create_json_response_object.start()
         self.addCleanup(patcher_create_json_response_object.stop)
+
+        # Load json files with real objects from C42 REST API
+        # for testing json mangling
+        with open(os.path.join(os.path.dirname(__file__), 'event_object.json')) as json_data:
+            data = json.load(json_data)
+            print(data)
+        self.test_get_event_response = data
+
+        with open(os.path.join(os.path.dirname(__file__), 'event_subscriptions_object.json')) as json_data:
+            data = json.load(json_data)
+        self.test_event_subscriptions_response = data
 
         self.test_event_id = 'DisasterAreaConcert'
 
@@ -66,6 +79,17 @@ class C42RequestsTest(TestCase):
 
         response_json = get_response_json(self.test_event_id)
         self.assertEqual(self.mock_cache.set.call_count, 0)
+
+    @patch('C42_API_proxy_challenge.babelfish.Babelfish.get_event_subscriptions')
+    @patch('C42_API_proxy_challenge.babelfish.Babelfish.get_event')
+    def test_create_json_response_object(self, mock_get_event, mock_get_event_subscriptions):
+        # mock the returning objects from babelfish
+        mock_get_event.return_value = self.test_get_event_response
+        mock_get_event_subscriptions.json.return_value = self.test_event_subscriptions_response
+
+        json_object = create_json_response_object(self.test_event_id)
+        self.assertEqual(json_object["id"], "d6e66cb0ced8e46102bcfd93ceac51b0_14752373875438")
+        self.assertEqual(json_object["names"], ["API"])
 
     # def test_caching_layer(self):
     #     self.cache.set(key='marco', value='polo')

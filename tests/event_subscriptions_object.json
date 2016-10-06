@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "actor": {
+                "first_name": "API",
+                "id": "2e20d125c95cb2256d7dc90d063990",
+                "last_name": "User"
+            },
+            "calendar_ids": [],
+            "created": "2016-09-30T12:09:47.671346Z",
+            "event_id": "d6e66cb0ced8e46102bcfd93ceac51b0_14752373875438",
+            "id": "d6e66cb0ced8e46102bcfd93ceac51b0_14752373875438__2e20d125c95cb2256d7dc90d063990",
+            "is_invitation": false,
+            "message": null,
+            "permission": "subscribed_write",
+            "rsvp_status": null,
+            "subscriber": {
+                "email": null,
+                "first_name": "API",
+                "id": "2e20d125c95cb2256d7dc90d063990",
+                "last_name": "User",
+                "phone_number": null,
+                "photo": "https://demo.calendar42.com/accounts/photo/?user_id=2e20d125c95cb2256d7dc90d063990",
+                "tags": [
+                    "api"
+                ]
+            },
+            "sync_token": 9181337
+        }
+    ],
+    "meta_data": {
+        "count": 8,
+        "offset": 0,
+        "sync_token": 9187399
+    }
+}

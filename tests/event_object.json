@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "all_day": null,
+            "calendar_ids": [],
+            "color": null,
+            "created": "2016-09-30T12:09:47.569507Z",
+            "creator": {},
+            "description": "",
+            "due": null,
+            "end": null,
+            "end_location": null,
+            "end_timezone": null,
+            "event_type": "todo",
+            "icon": null,
+            "id": "d6e66cb0ced8e46102bcfd93ceac51b0_14752373875438",
+            "invitation": {},
+            "is_invitation": false,
+            "is_suggestion": null,
+            "length": null,
+            "logo": null,
+            "modified": "2016-09-30T12:09:47.543888Z",
+            "permission": "subscribed_write",
+            "previous_permission": null,
+            "recurrence": false,
+            "recurrence_parent": null,
+            "rsvp_status": null,
+            "source_url": null,
+            "start": null,
+            "start_location": {
+                "address": "Oude Delft",
+                "city": "Delft",
+                "geo": {
+                    "latitude": 52.0104238,
+                    "longitude": 4.3568388
+                },
+                "id": "04559159e8b169150c9b773e3bf40af275ea463d",
+                "labels": [],
+                "postcode": "2611",
+                "text": "Oude Delft, 2611, Delft"
+            },
+            "start_timezone": null,
+            "state": null,
+            "sync_token": 9181337,
+            "time_buffer": null,
+            "title": "Drink a cup of coffee with C42 Team"
+        }
+    ],
+    "meta_data": {
+        "count": 1
+    }
+}
