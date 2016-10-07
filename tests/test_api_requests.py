@@ -95,6 +95,6 @@ class C42RequestsTest(TestCase):
     @patch('C42_API_proxy_challenge.babelfish.requests.get', side_effect=mocked_requests_get)
     def test_create_json_response_object(self, mock_requests_get):
         json_object = create_json_response_object(self.test_event_id)
-        self.assertEqual(json_object["id"], "d6e66cb0ced8e46102bcfd93ceac51b0_14752373875438")
-        self.assertEqual(json_object["names"], ["API"])
+        self.assertEqual(json_object['id'], 'd6e66cb0ced8e46102bcfd93ceac51b0_14752373875438')
+        self.assertEqual(json_object['names'], ['API'])
 
