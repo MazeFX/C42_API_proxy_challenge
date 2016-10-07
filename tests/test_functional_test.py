@@ -11,10 +11,6 @@ Testing for Calendar42 REST API proxy.
 Live testing against the C42 REST API to confirm that the requirements
 of the challenge have been achieved.
 
-Test can run against a local development server or run against a live server
-via the command:
-
-'python manage.py test tests/functional_test --liveserver=mazefx.pythonanywhere.com
 """
 
 

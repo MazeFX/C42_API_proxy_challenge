@@ -31,3 +31,7 @@ Just finished building the tests for Babelfish, I have doubts that tests are ade
 I'm still got some time for this is the last evening and I really want to get the proxy deployed. The cherry on the cake, just to spoil myself.
 
 Functional test is also passed!! Successful request towards the local development server, which in his turn requests the live C42 REST API.
+
+Hmm I got the changes to my webhost and got back an error email. Apparently I got back a 403 Forbidden. Makes sense though.
+
+Oke that's it, times up! Going to to turn in the challenge now. Wish me luck!
