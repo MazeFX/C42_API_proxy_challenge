@@ -29,3 +29,5 @@ Just finished building the tests for Babelfish, I have doubts that tests are ade
 ## Awesome! Unit testing completed
 07-10-2016: I'm thrilled about writing code for this challenge, so far I have accomplished 13 passing unit tests!
 I'm still got some time for this is the last evening and I really want to get the proxy deployed. The cherry on the cake, just to spoil myself.
+
+Functional test is also passed!! Successful request towards the local development server, which in his turn requests the live C42 REST API.
