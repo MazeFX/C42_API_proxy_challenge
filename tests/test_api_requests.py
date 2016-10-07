@@ -22,26 +22,26 @@ from C42_API_proxy_challenge.api_requests import (get_events_with_subscriptions,
 
 
 def mocked_requests_get(*args, **kwargs):
-	# for returning the json test objects when calling request.get
+    # for returning the json test objects when calling request.get
 
-	class MockResponse:
-		def __init__(self, json_data, status_code):
-			self.json_data = json_data
-			self.status_code = status_code
+    class MockResponse:
+        def __init__(self, json_data, status_code):
+            self.json_data = json_data
+            self.status_code = status_code
 
-		def json(self):
-			return self.json_data
+        def json(self):
+            return self.json_data
 
-	if 'https://demo.calendar42.com/api/v2/events/' in args[0]:
-		with open(os.path.join(os.path.dirname(__file__), 'event_object.json')) as json_data:
+    if 'https://demo.calendar42.com/api/v2/events/' in args[0]:
+        with open(os.path.join(os.path.dirname(__file__), 'event_object.json')) as json_data:
             data = json.load(json_data)
         return MockResponse(data, 200)
     elif 'https://demo.calendar42.com/api/v2/event-subscriptions/' in args[0]:
-    	with open(os.path.join(os.path.dirname(__file__), 'event_subscriptions_object.json')) as json_data:
+        with open(os.path.join(os.path.dirname(__file__), 'event_subscriptions_object.json')) as json_data:
             data = json.load(json_data)
         return MockResponse(data, 200)
     else:
-    	return MockResponse({}, 404)
+        return MockResponse({}, 404)
 
 
 class C42RequestsTest(TestCase):
@@ -57,7 +57,7 @@ class C42RequestsTest(TestCase):
 
         patcher_create_json_response_object = patch('C42_API_proxy_challenge.api_requests.create_json_response_object')
         self.mock_create_json_response_object = patcher_create_json_response_object.start()
-        self.addCleanup(patcher_create_json_response_object.stop)   
+        self.addCleanup(patcher_create_json_response_object.stop)
 
         self.test_event_id = 'DisasterAreaConcert'
 

@@ -25,3 +25,7 @@ Because of my current personal situation I'm afraid for needing to much time to 
 I have until next friday (7-10-2016) to work on this challenge before turning in the code I have. Until that time it is important for myself that I keep things nice and tidy and don't take shortcuts just to make the deadline.
 
 Just finished building the tests for Babelfish, I have doubts that tests are adequate. They test the functions and they all pass but I'm uncertain if the test make the right assertions.
+
+## Awesome! Unit testing completed
+07-10-2016: I'm thrilled about writing code for this challenge, so far I have accomplished 13 passing unit tests!
+I'm still got some time for this is the last evening and I really want to get the proxy deployed. The cherry on the cake, just to spoil myself.
