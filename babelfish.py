@@ -31,6 +31,9 @@ class Babelfish(object):
         headers = self.build_request_headers()
 
         response = self.query_C42_REST_API(url, headers)
+        if response.status_code != 200:
+            raise ValueError('Error; Something went wrong while getting a responce from the C42 server. Starting a bloody war..')
+
         return response
 
     def get_event_subscriptions(self, event_id):
@@ -41,6 +44,9 @@ class Babelfish(object):
         headers = self.build_request_headers()
 
         response = self.query_C42_REST_API(url, headers)
+        if response.status_code != 200:
+            raise ValueError('Error; Something went wrong while getting a responce from the C42 server. Starting a bloody war..')
+
         return response
 
     def build_request_headers(self):
